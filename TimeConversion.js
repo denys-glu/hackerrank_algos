@@ -21,16 +21,17 @@ function timeConversion(s) {
   }
   const timeOfTheDay = s.slice(-2);
   const currentHour = s.slice(0, 2);
+  const timeKey = timeStamps[timeOfTheDay][currentHour];
   if (timeOfTheDay === "AM") {
-    if (timeStamps[timeOfTheDay][currentHour]) {
-      res += timeStamps[timeOfTheDay][currentHour] + s.slice(2, -2)
+    if (timeKey) {
+      res += timeKey + s.slice(2, -2)
     } else {
       res += s.slice(0, -2)
     }
   }
   if (timeOfTheDay === "PM") {
-    if (timeStamps[timeOfTheDay][currentHour]) {
-      res += timeStamps[timeOfTheDay][currentHour] + s.slice(2, -2)
+    if (timeKey) {
+      res += timeKey + s.slice(2, -2)
     }
   }
   console.log(res)
